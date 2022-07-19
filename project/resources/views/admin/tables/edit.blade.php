@@ -11,27 +11,31 @@
         <a href="{{  route('admin.tables.index') }}" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 text-white rounded-lg">View all tables</a>
       </div>
       <div class="m-2 p-2 bg-slate-100 rounded">
-        <form method="POST" action="{{ route('admin.tables.store') }}">
+        <form method="POST" action="{{ route('admin.tables.update', $table->id) }}">
           @csrf
+          @method('PUT')
           <div class="sm:col-span-6">
             <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
             <div class="mt-1">
-              <input type="text" id="name" name="name" 
+              <input type="text" id="name" name="name" value="{{ $table->name }}"
                     class="block w-full transition ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal duration-150 sm:text-sm sm:leading-5"/>
             </div>
           </div>
           <div class="sm:col-span-6">
             <label for="guest_number" class="block text-sm font-medium text-gray-700">Guest Number</label>
             <div class="mt-1">
-              <input type="number" id="guest_number" name="guest_number" class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal  sm:text-sm sm:leading-5"/>
+              <input type="number" id="guest_number" name="guest_number" 
+                    value="{{ $table->guest_number }}"
+                    class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal  sm:text-sm sm:leading-5"/>
             </div>
           </div>
           <div class="sm:col-span-6 pt-5">
             <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
             <div class="mt-1">
-              <select id="status" name="status" class="form-multiselect block w-full mt-1">
+              <select id="status" name="status" 
+                      class="form-multiselect block w-full mt-1">
                 @foreach (App\Enums\TableStatus::cases() as $status)  
-                  <option value="{{ $status->value }}">{{ $status->name }}</option>
+                  <option value="{{ $status->value }}" @selected($table->status->value == $status->value)>{{ $status->name }}</option>
                 @endforeach
               </select>
             </div>
@@ -41,7 +45,7 @@
             <div class="mt-1">
               <select id="location" name="location" class="form-multiselect block w-full mt-1">
                 @foreach (App\Enums\TableLocation::cases() as $location)  
-                  <option value="{{ $location->value }}">{{ $location->name }}</option>
+                  <option value="{{ $location->value }}" @selected ($table->location->value == $location->value)>{{ $location->name }}</option>
                 @endforeach
               </select>
             </div>
