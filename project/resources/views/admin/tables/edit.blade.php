@@ -20,6 +20,9 @@
               <input type="text" id="name" name="name" value="{{ $table->name }}"
                     class="block w-full transition ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal duration-150 sm:text-sm sm:leading-5"/>
             </div>
+            @error('name')
+              <div class="text-sm text-red-400">{{ $message }}</div>
+            @enderror
           </div>
           <div class="sm:col-span-6">
             <label for="guest_number" class="block text-sm font-medium text-gray-700">Guest Number</label>
@@ -28,6 +31,9 @@
                     value="{{ $table->guest_number }}"
                     class="block w-full transition duration-150 ease-in-out appearance-none bg-white border border-gray-400 rounded-md py-2 px-3 text-base leading-normal  sm:text-sm sm:leading-5"/>
             </div>
+            @error('guest_number')
+              <div class="text-sm text-red-400">{{ $message }}</div>
+            @enderror
           </div>
           <div class="sm:col-span-6 pt-5">
             <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
@@ -39,6 +45,9 @@
                 @endforeach
               </select>
             </div>
+            @error('status')
+              <div class="text-sm text-red-400">{{ $message }}</div>
+            @enderror
           </div>
           <div class="sm:col-span-6 pt-5">
             <label for="location" class="block text-sm font-medium text-gray-700">Location</label>
@@ -49,14 +58,15 @@
                 @endforeach
               </select>
             </div>
+            @error('location')
+              <div class="text-sm text-red-400">{{ $message }}</div>
+            @enderror
           </div>
           <div class="mt-6">
             <button type="submit" class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">Store</button>
           </div>
-            </form>
-          </div>            
-        </div>
-    
+        </form>
+      </div>
     </div>
   </div>
 </x-admin-layout>
