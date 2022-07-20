@@ -28,7 +28,7 @@ class ReservationController extends Controller
             'last_name' => ['required'],
             'email' => ['required', 'email'],
             'res_date' => ['required', 'date', new DateBetween, new TimeBetween],
-            'tel_number' => ['required'],
+            'phone_number' => ['required'],
             'guest_number' => ['required'],
         ]);
 

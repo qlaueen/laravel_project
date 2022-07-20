@@ -7,6 +7,8 @@ use App\Http\Requests\TableStoreRequest;
 use App\Models\Table;
 use Illuminate\Http\Request;
 
+use function Ramsey\Uuid\v1;
+
 class TableController extends Controller
 {
     /**
@@ -39,10 +41,10 @@ class TableController extends Controller
     public function store(TableStoreRequest $request)
     {
         Table::create([
-          'name'=>$request->name,
-          'guest_number'=>$request->guest_number,
-          'status'=>$request->status,
-          'location'=>$request->location,
+            'name' => $request->name,
+            'guest_number' => $request->guest_number,
+            'status' => $request->status,
+            'location' => $request->location,
         ]);
 
         return to_route('admin.tables.index')->with('success', 'Table created successfully.');
@@ -80,6 +82,7 @@ class TableController extends Controller
     public function update(TableStoreRequest $request, Table $table)
     {
         $table->update($request->validated());
+
         return to_route('admin.tables.index')->with('success', 'Table updated successfully.');
     }
 
@@ -93,6 +96,7 @@ class TableController extends Controller
     {
         $table->reservations()->delete();
         $table->delete();
-        return to_route('admin.tables.index')->with('danger', 'Table deleted successfully.');
+
+        return to_route('admin.tables.index')->with('danger', 'Table daleted successfully.');
     }
 }

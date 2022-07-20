@@ -1,4 +1,3 @@
-
 @extends('errors::minimal')
 
 @section('title', __('Unauthorized'))
