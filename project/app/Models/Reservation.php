@@ -12,20 +12,22 @@ class Reservation extends Model
     use HasFactory;
 
     protected $fillable = [
-      'first_name',
-      'last_name',
-      'phone_number',
-      'email',
-      'table_id',
-      'res_date',
-      'guest_number'
+        'first_name',
+        'last_name',
+        'phone_number',
+        'email',
+        'table_id',
+        'res_date',
+        'guest_number'
     ];
 
     protected $dates = [
-      'res_date'
-  ];
+        'res_date'
+    ];
 
-  public function table()
+
+
+    public function table()
     {
         return $this->belongsTo(Table::class);
     }

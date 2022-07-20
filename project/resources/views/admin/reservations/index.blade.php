@@ -7,6 +7,11 @@
 
   <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+      <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+        <div class="p-6 bg-white border-b border-gray-200">
+          Reservations
+        </div>
+      </div>
       <div class="flex justify-end m-2 p-2">
         <a href="{{ route('admin.reservations.create') }}"
               class="px-4 py-2 bg-indigo-500 hover:bg-indigo-700 rounded-lg text-white">New Reservation</a>
@@ -15,31 +20,26 @@
         <div class="overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div class="inline-block py-2 min-w-full sm:px-6 lg:px-8">
             <div class="overflow-hidden shadow-md sm:rounded-lg">
-              <table class="min-w-full">
+              <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                 <thead class="bg-gray-50 dark:bg-gray-700">
                   <tr>
-                    <th scope="col"
-                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                    <th scope="col" class="ppy-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                         Name
                     </th>
-                    <th scope="col"
-                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                         Email
                     </th>
-                    <th scope="col"
-                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                         Date
                     </th>
-                    <th scope="col"
-                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                         Table
                     </th>
-                    <th scope="col"
-                        class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
                         Guests
                     </th>
-                    <th scope="col" class="relative py-3 px-6">
-                        <span class="sr-only">Edit</span>
+                    <th scope="col" class="py-3 px-6 text-xs font-medium tracking-wider text-left text-gray-700 uppercase dark:text-gray-400">
+                        Edit
                     </th>
                   </tr>
                 </thead>

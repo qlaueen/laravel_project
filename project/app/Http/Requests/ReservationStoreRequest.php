@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\DateBetween;
+use App\Rules\TimeBetween;
 use Carbon\Carbon;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -20,18 +22,18 @@ class ReservationStoreRequest extends FormRequest
     /**
      * Get the validation rules that apply to the request.
      *
-     * @return array<string, mixed>
+     * @return array
      */
     public function rules()
     {
-      return [
-        'first_name' => ['required'],
-        'last_name' => ['required'],
-        'email' => ['required', 'email'],
-        'res_date' => ['required', 'date'],
-        'phone_number' => ['required'],
-        'table_id' => ['required'],
-        'guest_number' => ['required'],
-    ];
+        return [
+            'first_name' => ['required'],
+            'last_name' => ['required'],
+            'email' => ['required', 'email'],
+            'res_date' => ['required', 'date', new DateBetween, new TimeBetween],
+            'phone_number' => ['required'],
+            'table_id' => ['required'],
+            'guest_number' => ['required'],
+        ];
     }
 }
