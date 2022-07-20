@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -10,10 +11,14 @@
     <!-- Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
 
+    <!-- Styles -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+
     <!-- Scripts -->
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-  </head>
-  <body class="font-sans antialiased">
+    <script src="{{ asset('js/app.js') }}" defer></script>
+</head>
+
+<body class="font-sans antialiased">
     <div class="flex-col w-full md:flex md:flex-row md:min-h-screen">
         <div @click.away="open = false"
             class="flex flex-col flex-shrink-0 w-full text-gray-700 bg-slate-100 md:w-64 dark:text-gray-200 dark:bg-gray-800"
@@ -88,19 +93,19 @@
                 @if (session()->has('danger'))
                     <div class="p-4 mb-4 text-sm text-red-700 bg-red-100 rounded-lg dark:bg-red-200 dark:text-red-800"
                         role="alert">
-                        <span class="font-medium">{{ session()->get('danger') }}</span>
+                        <span class="font-medium">{{ session()->get('danger') }}!</span>
                     </div>
                 @endif
                 @if (session()->has('success'))
                     <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-800"
                         role="alert">
-                        <span class="font-medium">{{ session()->get('success') }}</span>
+                        <span class="font-medium">{{ session()->get('success') }}!</span>
                     </div>
                 @endif
                 @if (session()->has('warning'))
                     <div class="p-4 mb-4 text-sm text-yellow-700 bg-yellow-100 rounded-lg dark:bg-yellow-200 dark:text-yellow-800"
                         role="alert">
-                        <span class="font-medium">{{ session()->get('warning') }}</span>
+                        <span class="font-medium">{{ session()->get('warning') }}!</span>
                     </div>
                 @endif
             </div>
